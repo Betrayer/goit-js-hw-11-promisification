@@ -6,12 +6,14 @@ const users = [
   { name: "Lux", active: false }
 ];
 
-const toggleUserState = (allUsers, userName, callback) => {
-  const updatedUsers = allUsers.map(user =>
-    user.name === userName ? { ...user, active: !user.active } : user
-  );
-
-  callback(updatedUsers);
+const toggleUserState = (allUsers, userName) => {
+  const promise = new Promise(resolve => {
+    setTimeout(() => {
+      const updatedUsers = allUsers.map(user =>
+        user.name === userName ? { ...user, active: !user.active } : user);
+      resolve(updatedUsers);}, 5000);});
+  // callback(updatedUsers);});
+  return promise;
 };
 
 const logger = updatedUsers => console.table(updatedUsers);
