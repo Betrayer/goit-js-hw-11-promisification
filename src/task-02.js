@@ -11,8 +11,7 @@ const toggleUserState = (allUsers, userName) => {
     setTimeout(() => {
       const updatedUsers = allUsers.map(user =>
         user.name === userName ? { ...user, active: !user.active } : user);
-      resolve(updatedUsers);}, 5000);});
-  // callback(updatedUsers);});
+      resolve(updatedUsers);}, 2500);});
   return promise;
 };
 
@@ -21,8 +20,8 @@ const logger = updatedUsers => console.table(updatedUsers);
 /*
  * Сейчас работает так
  */
-toggleUserState(users, "Mango", logger);
-toggleUserState(users, "Lux", logger);
+// toggleUserState(users, "Mango", logger);
+// toggleUserState(users, "Lux", logger);
 
 /*
  * Должно работать так
